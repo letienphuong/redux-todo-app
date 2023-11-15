@@ -1,8 +1,11 @@
-import { legacy_createStore, compose} from "redux";
-import rootReducer from "./reducer";
+import {configureStore} from '@reduxjs/toolkit';
+import filtersReducer from '../components/Filters/filtersSlice';
+import todoListReducer from '../components/TodoList/todosSlice';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = legacy_createStore(rootReducer, composeEnhancers());
-
+const store = configureStore({
+    reducer: {
+        filters: filtersReducer.reducer,
+        todoList: todoListReducer.reducer,
+    }
+})
 export default store;

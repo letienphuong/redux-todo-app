@@ -1,18 +1,5 @@
-// export const todoListSelector = (state) => state.todoList;
 
-import {createSelector} from 'reselect';
-
-// // export const searchTextSelector = (state) => state.filters.search;
-// export const todoListSelector = (state) => {
-//     const searchText = (state) => state.filters.search;
-//     const todoRemaining = state.todoList.filter((todo) => {
-//         return todo.name.includes(state.filters.search);
-//     })
-
-//     return todoRemaining;
-// }
-
-// console.log("ABC:",searchTextSelector)
+import {createSelector} from '@reduxjs/toolkit';
 
 
 export const searchTextSelector = (state) => state.filters.search;
@@ -41,22 +28,4 @@ export const todosRemainingSelector = createSelector(
                 (priorities.length ? priorities.includes(todo.priority) : true)
             )
         })
-        // return todoList.filter((todo) => {
-        //     if(status === 'All'){
-        //         return todo.name.includes(searchText);
-        //     }
-        //     return (
-        //         todo.name.includes(searchText) && 
-        //         (status === 'Completed'
-        //             ? todo.completed
-        //             : !todo.completed
-        //         )
-        //     )
-        // })
-   
-
-    // (todoList, searchText='')=> {//status => 'All' 'Completed' 'Todo'
-    // return todoList.filter((todo) => {
-    //     return todo.name.includes(searchText);
-    // })
 })
